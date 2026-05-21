@@ -45,50 +45,68 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-indigo-900 text-indigo-100 py-20 px-6 mt-20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="space-y-4 col-span-2">
-                <div class="flex items-center gap-2">
-                    <div
-                        class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-900 font-bold text-xl">
-                        AH</div>
-                    <span class="text-2xl font-bold text-white">AmikomEventHub</span>
+    <footer class="bg-[#312E81] text-white pt-16 pb-8 border-t border-indigo-900/50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 pb-12 border-b border-indigo-400/20">
+                
+                <div class="md:col-span-5 space-y-4 text-left">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white text-indigo-900 flex items-center justify-center font-black text-xl shadow-sm">
+                            AH
+                        </div>
+                        <span class="text-2xl font-black tracking-tight">AmikomEventHub</span>
+                    </div>
+                    <p class="text-indigo-200/80 text-sm max-w-sm leading-relaxed font-medium">
+                        Platform reservasi tiket event online terbaik untuk mahasiswa dan penyelenggara profesional.
+                    </p>
                 </div>
-                <p class="max-w-xs text-indigo-300">Platform reservasi tiket event online terbaik untuk mahasiswa dan
-                    penyelenggara profesional.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-6">Kategori</h4>
 
-                <ul class="space-y-4">
-                    @foreach($categories as $cat)
+               <div class="md:col-span-3 text-left">
+                    <p class="text-sm font-black uppercase tracking-wider text-indigo-300 mb-4">Kategori</p>
+                    <ul class="space-y-2.5 text-sm font-medium text-indigo-100/80">
                         <li>
-                            <a href="/?category={{ $cat->slug }}"
-                            class="hover:text-white transition">
-                                {{ $cat->name }}
+                            <a href="{{ url('/?category=seminar-it') }}" class="hover:text-white transition-colors">
+                                Seminar IT
                             </a>
                         </li>
-                    @endforeach
-                </ul>
-            </div>            
-            <div>
-                <h4 class="text-white font-bold mb-6">Navigasi</h4>
-                <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-white transition">Home</a></li>
-                    <li><a href="#" class="hover:text-white transition">Semua Event</a></li>
-                    <li><a href="#" class="hover:text-white transition">Cara Bayar</a></li>
-                </ul>
+                        <li>
+                            <a href="{{ url('/?category=entertainment') }}" class="hover:text-white transition-colors">
+                                Entertainment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2 text-left">
+                    <p class="text-sm font-black uppercase tracking-wider text-indigo-300 mb-4">Navigasi</p>
+                    <ul class="space-y-2.5 text-sm font-medium text-indigo-100/80">
+                        <li><a href="{{ url('/') }}" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#events" class="hover:text-white transition-colors">Semua Event</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cara Bayar</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-2 text-left">
+                    <p class="text-sm font-black uppercase tracking-wider text-indigo-300 mb-4">Hubungi Kami</p>
+                    <ul class="space-y-2.5 text-sm font-medium text-indigo-100/80 break-words">
+                        <li>
+                            <a href="mailto:support@eventtiket.com" class="hover:text-white transition-colors block">
+                                support@eventtiket.com
+                            </a>
+                        </li>
+                        <li class="text-indigo-200/90">+62 812 3456 7890</li>
+                    </ul>
+                </div>
+
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-6">Hubungi Kami</h4>
-                <ul class="space-y-4">
-                    <li>support@eventtiket.com</li>
-                    <li>+62 812 3456 7890</li>
-                </ul>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-center text-center">
+                <p class="text-xs font-medium text-indigo-300/70 tracking-wide">
+                    &copy; {{ date('Y') }} <span class="font-bold text-indigo-200">AmikomEventHub</span>. Built with Laravel & Tailwind CSS. All rights reserved.
+                </p>
             </div>
-        </div>
-        <div class="max-w-7xl mx-auto pt-12 mt-12 border-t border-indigo-800 text-center text-indigo-400 text-sm">
-            &copy; 2024 AmikomEventHub. Built with Laravel & Tailwind CSS.
+
         </div>
     </footer>
 

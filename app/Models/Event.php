@@ -8,7 +8,7 @@ class Event extends Model
 {
     protected $fillable = [
         'category_id', 'title', 'description', 'date',
-        'location', 'price', 'stock', 'poster_path'
+        'location', 'price', 'stock', 'poster'
     ];
     protected $casts = [
         'date' => 'datetime',

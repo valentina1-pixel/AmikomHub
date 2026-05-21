@@ -43,9 +43,15 @@
                             </td>
 
                             <!-- Poster -->
-                            <td class="px-8 py-6">
-                                <img src="https://placehold.co/160x200"
-                                     class="w-16 h-20 rounded-xl object-cover shadow-sm">
+                            <td class="p-4">
+                                
+                                @if ($event->poster)
+                                    <img src="{{ asset('storage/' . $event->poster) }}" class="w-20 h-24 object-cover rounded-lg">
+                                @else
+                                    <div class="w-20 h-24 bg-slate-200 rounded-lg flex items-center justify-center text-xs">
+                                        No Image
+                                    </div>
+                                @endif
                             </td>
 
                             <!-- Info Event -->
