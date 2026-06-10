@@ -30,8 +30,8 @@ class EventController extends Controller
             'description' => 'required|string',
             'date'        => 'required|date',
             'location'    => 'required|string|max:255',
-            'price'       => 'required|numeric',
-            'stock'       => 'required|numeric',
+            'price'       => 'required|numeric|min:0', // Tambahan min:0
+            'stock'       => 'required|numeric|min:0', // Tambahan min:0
             'poster'      => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -57,8 +57,8 @@ class EventController extends Controller
             'description' => 'required|string',
             'date'        => 'required|date',
             'location'    => 'required|string|max:255',
-            'price'       => 'required|numeric',
-            'stock'       => 'required|numeric',
+            'price'       => 'required|numeric|min:0', // Tambahan min:0
+            'stock'       => 'required|numeric|min:0', // Tambahan min:0
             'poster'      => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
