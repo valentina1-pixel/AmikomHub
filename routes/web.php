@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\EventController as EventAdminController;
 use App\Http\Controllers\Admin\CategoryController; 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\CheckoutController;
 
 // ===================================================
 // RUTE USER AREA (HALAMAN DEPAN)
@@ -16,8 +17,15 @@ use App\Http\Controllers\Admin\TransactionController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/event/detail/{id}', [EventController::class, 'show'])->name('events.show');
-Route::get('/checkout', [EventController::class, 'checkout'])->name('checkout');
+
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
+
+// Rute Checkout
+Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
+
+// Rute Transaksi Tambahan
+Route::get('transactions', [\App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
 
 // ===================================================
 // RUTE ADMIN AREA (DASHBOARD & OPERASI CRUD)
