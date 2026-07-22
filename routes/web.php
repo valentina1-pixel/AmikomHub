@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\MidtransWebhookController;
 
 // ===================================================
 // RUTE USER AREA (HALAMAN DEPAN)
@@ -27,6 +28,9 @@ Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class
 
 Route::get('/payment/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'payment'])->name('checkout.payment');
 Route::get('/success/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
+
+
+Route::post('/midtrans/callback', [\App\Http\Controllers\MidtransWebhookController::class, 'handle']);
 
 // Rute Transaksi Tambahan
 Route::get('transactions', [\App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
